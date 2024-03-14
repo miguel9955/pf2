@@ -1,0 +1,48 @@
+<h2>Lista Turnos</h2>
+<div class="table-responsive">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="table-active "><strong>Id</strong></td>
+                <td class="table-active "><strong>Nombre</strong></td>
+                <td class="table-active"><strong>Apellido</strong></td >
+                <td class="table-active"><strong>Estado</strong></td>
+                <td class="table-active"><strong>Documento</strong></td>
+                <td class="table-active"><strong>Acciones</strong></td>
+                <td class="table-active"><strong>Eliminar</strong></td>
+
+
+            </tr>
+        </thead>
+        <tbody class="">
+            <tr *ngFor="let turno of turnos">
+                <td>{{turno.id}}</td>
+                <td>{{turno.nombre}}</td>
+                <td>{{turno.apellido}}</td>
+                <td>{{turno.documeto}}</td>
+                <td>{{turno.estado}}</td>
+                <td>
+                    <button (click)="actualizarTurno(turno.id)" class="btn btn-info">Editar</button> 
+
+                </td>
+                <td>
+                    <a class="mx-3 text-danger" (click)="eliminarTurno(turno.id)"
+                        
+                    >
+                        <span class="material-symbols-outlined">
+                            delete_forever
+                        </span>
+                    </a>
+                </td>
+
+
+
+            </tr>
+
+
+
+        </tbody>
+    </table>
+
+</div>

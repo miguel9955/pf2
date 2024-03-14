@@ -1,0 +1,48 @@
+<h2>Lista Reportes</h2>
+<div class="table-responsive">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="table-active "><strong>Nombre</strong></td>
+                <td class="table-active"><strong>Apellido</strong></td >
+                <td class="table-active"><strong>Documento</strong></td>
+                <td class="table-active"><strong>Acciones</strong></td>
+                <td class="table-active"><strong>Eliminar</strong></td>
+
+
+            </tr>
+        </thead>
+        <tbody class="">
+            <tr *ngFor="let reporte of reporte">
+                <td>{{reporte.id_reporte}}</td>
+                <td>{{reporte.contenido}}</td>
+                <td>{{reporte.turno.id}}</td>
+                <td>{{reporte.asesor.id}}</td>
+
+                <td>
+                    <button (click)="actualizarAsesores(reporte.id_reporte)" class="btn btn-info">Editar</button> 
+
+                </td>
+                <td>
+                    <a class="mx-3 text-danger" (click)="eliminarReporte(reporte.id_reporte)"
+                        
+                    >
+                        <span class="material-symbols-outlined">
+                            delete_forever
+                        </span>
+                    </a>
+                </td>
+                
+               
+
+
+
+            </tr>
+
+
+
+        </tbody>
+    </table>
+
+</div>

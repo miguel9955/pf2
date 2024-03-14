@@ -1,0 +1,48 @@
+<h2>Lista Asesores</h2>
+<div class="table-responsive">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="table-active "><strong>ID</strong></td>
+                <td class="table-active "><strong>Nombre</strong></td>
+                <td class="table-active"><strong>Apellido</strong></td >
+                <td class="table-active"><strong>Documento</strong></td>
+                <td class="table-active"><strong>Acciones</strong></td>
+                <td class="table-active"><strong>Eliminar</strong></td>
+
+
+            </tr>
+        </thead>
+        <tbody class="">
+            <tr *ngFor="let asesores of asesores">
+                <td>{{asesores.id}}</td>
+                <td>{{asesores.nombre}}</td>
+                <td>{{asesores.apellido}}</td>
+                <td>{{asesores.documento}}</td>
+                <td>
+                    <button (click)="actualizarAsesores(asesores.id)" class="btn btn-info">Editar</button> 
+
+                </td>
+                <td>
+                    <a class="mx-3 text-danger" (click)="eliminarAsesores(asesores.id)"
+                        
+                    >
+                        <span class="material-symbols-outlined">
+                            delete_forever
+                        </span>
+                    </a>
+                </td>
+                
+               
+
+
+
+            </tr>
+
+
+
+        </tbody>
+    </table>
+
+</div>
