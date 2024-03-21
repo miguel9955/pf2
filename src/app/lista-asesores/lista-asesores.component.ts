@@ -3,6 +3,8 @@ import { Asesores } from '../asesores';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { AsesoresService } from '../asesores.service';
+import { LoginService } from 'src/app/services/auth/login.service';
+
 
 
 @Component({
@@ -13,7 +15,15 @@ import { AsesoresService } from '../asesores.service';
 export class ListaAsesoresComponent implements OnInit, OnDestroy{
   subscription: Subscription;
   asesores:Asesores[];
-  constructor(private asesoreServices : AsesoresService , private router:Router){}
+  userLoginOn:boolean=false;
+
+  constructor(private asesoreServices : AsesoresService , private router:Router,private loginService:LoginService){
+    this.loginService.userLoginOn.subscribe({
+      next:(userLoginOn) => {
+        this.userLoginOn=userLoginOn;
+      }
+    })
+  }
   ngOnInit(): void{
     this.obtenerAsesores();
     this.subscription= this.asesoreServices.refresh$.subscribe(()=>{
