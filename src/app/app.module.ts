@@ -28,6 +28,12 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
+import { ListaTurnosActivosPrincipalComponent } from './lista-turnos-activos-principal/lista-turnos-activos-principal.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditarTurnoModalComponentComponent } from './editar-turno-modal-component/editar-turno-modal-component.component';
+import { EditarAdminComponent } from './editar-admin/editar-admin.component';
+
 
 
 
@@ -51,7 +57,11 @@ import { ErrorInterceptorService } from './services/auth/error-interceptor.servi
     NavComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ListaTurnosActivosPrincipalComponent,
+    HomepageComponent,
+    EditarTurnoModalComponentComponent,
+    EditarAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,9 +72,11 @@ import { ErrorInterceptorService } from './services/auth/error-interceptor.servi
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:JwtInterceptorService,multi:true},

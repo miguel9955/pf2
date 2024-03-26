@@ -1,0 +1,30 @@
+<div class="container w-75 bg-light mt-5 pb-5 rounded shadow ">
+
+    <div class="cont">
+        <form (ngSubmit)="onSubmit()" method="post">
+
+            <label for="Asesore_id">Asesor ID:</label>
+            <input class="form-control" type="text" id="Asesore_id" [(ngModel)]="reporte.asesor.id" name="asesor">
+            <div class="name pl-3 w-50">
+                <label for="name">Turno ID: </label>
+                <br>
+                <input class="form-control" type="text" id="Turno_id" [(ngModel)]="reporte.turno.id" name="turno">
+            </div>
+            <div class="name pl-3 w-50">
+                <label for="name">Contenido: </label>
+                <br>
+                <input class="form-control" type="text" id="Contenido" [(ngModel)]="reporte.contenido" name="contenido">
+            </div>
+
+
+
+            <div class="name pl-3 w-50">
+                <br>
+                <button class="btn btn-info" type="submit">Editar</button>
+            </div>
+
+
+        </form>
+
+    </div>
+</div>

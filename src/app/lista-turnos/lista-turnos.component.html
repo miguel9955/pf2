@@ -7,8 +7,12 @@
                 <td class="table-active "><strong>Id</strong></td>
                 <td class="table-active "><strong>Nombre</strong></td>
                 <td class="table-active"><strong>Apellido</strong></td >
-                <td class="table-active"><strong>Estado</strong></td>
                 <td class="table-active"><strong>Documento</strong></td>
+                <td class="table-active"><strong>Estado</strong></td>
+                <td class="table-active"><strong>Tipo turno</strong></td>
+                <td class="table-active"><strong>Discapacidad</strong></td>
+
+
                 <td class="table-active"><strong>Acciones</strong></td>
                 <td class="table-active"><strong>Eliminar</strong></td>
 
@@ -22,6 +26,8 @@
                 <td>{{turno.apellido}}</td>
                 <td>{{turno.documeto}}</td>
                 <td>{{turno.estado}}</td>
+                <td>{{turno.tipoturno}}</td>
+                <td>{{turno.discapacidad}}</td>
                 <td>
                     <button (click)="actualizarTurno(turno.id)" class="btn btn-info">Editar</button> 
 

@@ -20,7 +20,7 @@ export class ReporteService {
     return this._refresh$;
   }
 
-  //Metodo para registrar los turnos
+  //Metodo para registrar los reportes
 
   registrarReporte(reporte:Reporte):Observable<object>{
     return this.httpClient.post(`${this.baseUrl}`,reporte)
@@ -30,12 +30,12 @@ export class ReporteService {
       })
     );
   }
-  //Actualizar turnos
+  //Actualizar reportes
   actualizarReporte(id:number, reporte:Reporte) :Observable<object>{
     return this.httpClient.put(`${this.baseUrl}/${id}`,reporte);
 
   }
-  //ObtenerTurnos por Id
+  //Obtenerreportes por Id
   ObtenerReporte(id:number):Observable<Reporte>{
     return this.httpClient.get<Reporte>(`${this.baseUrl}/${id}`);
 

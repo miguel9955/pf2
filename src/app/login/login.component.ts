@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         },
         complete: () => {
           console.info("Login completo");
-          this.router.navigateByUrl('/inicio');
+          this.router.navigateByUrl('lista-turnos-en-espera');
           this.loginForm.reset();
         }
       })

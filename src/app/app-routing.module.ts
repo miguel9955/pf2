@@ -9,10 +9,13 @@ import { ActualizarAsesoresComponent } from './actualizar-asesores/actualizar-as
 import { ListarReporteComponent } from './listar-reporte/listar-reporte.component';
 import { RegistrarReporteComponent } from './registrar-reporte/registrar-reporte.component';
 import { LoginComponent } from './login/login.component';
+import { ListaTurnosEnEsperaComponent } from './lista-turnos-en-espera/lista-turnos-en-espera.component';
+import { ListaTurnosActivosPrincipalComponent } from './lista-turnos-activos-principal/lista-turnos-activos-principal.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
     {path : 'turnos',component:ListaTurnosComponent},
-    {path : '',redirectTo:'turnos',pathMatch:'full'},
+    {path : '',redirectTo:'homepage',pathMatch:'full'},
     {path : 'registrar-turno', component:RegistrarTurnoComponent},
     {path : 'actualizar-turno/:id', component:ActualizarTurnoComponent},
     {path : 'asesores',component:ListaAsesoresComponent},
@@ -20,7 +23,18 @@ const routes: Routes = [
     {path : 'actualizar-asesores/:id', component:ActualizarAsesoresComponent},
     {path : 'reporte',component:ListarReporteComponent},
     {path : 'registrar-reporte', component:RegistrarReporteComponent},
-    {path : 'login', component:LoginComponent,pathMatch:'full'}
+    {path : 'login', component:LoginComponent,pathMatch:'full'},
+    {path : 'lista-turnos-en-espera', component:ListaTurnosEnEsperaComponent,pathMatch:'full'},
+    {path : 'lista-turnos-activos-principal', component:ListaTurnosActivosPrincipalComponent},
+    {path : 'homepage', component:HomepageComponent},
+    {path : 'editar-admin/:id', component:HomepageComponent},
+    { path: 'homepage/registrar-turno', component: RegistrarTurnoComponent },
+    { path: 'homepage/turnos', component: LoginComponent },
+    { path: '', redirectTo: '/registrar-reporte', pathMatch: 'full' }, // Ruta por defecto
+    { path: '**', redirectTo: '/registrar-reporte' }, // Ruta para manejar rutas no encontradas
+
+
+
 
 
 

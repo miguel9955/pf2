@@ -4,11 +4,13 @@
     <table class="table">
         <thead>
             <tr>
-                <td class="table-active "><strong>Nombre</strong></td>
-                <td class="table-active"><strong>Apellido</strong></td >
-                <td class="table-active"><strong>Documento</strong></td>
-                <td class="table-active"><strong>Acciones</strong></td>
+                <td class="table-active "><strong>Id</strong></td>
+                <td class="table-active"><strong>Contenido</strong></td >
+                <td class="table-active"><strong>Id_Turno</strong></td>
+                <td class="table-active"><strong>Id_Asesor</strong></td>
+                <td class="table-active"><strong>Editar</strong></td>
                 <td class="table-active"><strong>Eliminar</strong></td>
+
 
 
             </tr>
@@ -21,7 +23,7 @@
                 <td>{{reporte.asesor.id}}</td>
 
                 <td>
-                    <button (click)="actualizarAsesores(reporte.id_reporte)" class="btn btn-info">Editar</button> 
+                    <button (click)="actualizarReporte(reporte.id_reporte)" class="btn btn-info">Editar</button> 
 
                 </td>
                 <td>
@@ -33,10 +35,6 @@
                         </span>
                     </a>
                 </td>
-                
-               
-
-
 
             </tr>
 

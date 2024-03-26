@@ -18,16 +18,17 @@ export class ListaAsesoresComponent implements OnInit, OnDestroy{
   userLoginOn:boolean=false;
 
   constructor(private asesoreServices : AsesoresService , private router:Router,private loginService:LoginService){
-    this.loginService.userLoginOn.subscribe({
-      next:(userLoginOn) => {
-        this.userLoginOn=userLoginOn;
-      }
-    })
+    
   }
   ngOnInit(): void{
     this.obtenerAsesores();
     this.subscription= this.asesoreServices.refresh$.subscribe(()=>{
       this.obtenerAsesores();
+    });
+    this.loginService.currentUserLoginOn.subscribe({
+      next:(userLoginOn) => {
+        this.userLoginOn=userLoginOn;
+      }
     });
   }
 ngOnDestroy(): void {

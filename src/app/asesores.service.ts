@@ -4,8 +4,6 @@ import {tap} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Asesores } from './asesores';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +20,7 @@ export class AsesoresService {
     return this._refresh$;
   }
 
-  //Metodo para registrar los turnos
+  //Metodo para registrar los Asesores
 
   registrarAsesores(asesores:Asesores):Observable<object>{
     return this.httpClient.post(`${this.baseUrl}`,asesores)
@@ -32,12 +30,12 @@ export class AsesoresService {
       })
     );
   }
-  //Actualizar turnos
+  //Actualizar Asesores
   actualizarAsesores(id:number, asesores:Asesores) :Observable<object>{
     return this.httpClient.put(`${this.baseUrl}/${id}`,asesores);
 
   }
-  //ObtenerTurnos por Id
+  //ObtenerAsesores por Id
   ObtenerAsesoresPorId(id:number):Observable<Asesores>{
     return this.httpClient.get<Asesores>(`${this.baseUrl}/${id}`);
 

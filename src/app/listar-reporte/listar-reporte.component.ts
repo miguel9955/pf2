@@ -27,9 +27,9 @@ export class ListarReporteComponent implements OnInit, OnDestroy {
 
     this.reporteServicio.obtenerlistaReporte().subscribe(dato => { this.reporte = dato; });
   }
-  actualizarAsesores(id: number) {
-    this.router.navigate(['actualizar-reporte', id]);
-  }
+  actualizarReporte(id: number) {
+    this.router.navigate(['editar-admin', id]);
+  } 
   eliminarReporte(id: number) {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este turno?');
     if (confirmacion == true) {

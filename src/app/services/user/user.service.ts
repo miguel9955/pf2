@@ -23,6 +23,12 @@ export class UserService {
       catchError(this.handleError)
     )
   }
+  createUser(newUser: User): Observable<User> {
+    return this.http.post<User>(environment.urlHost + "/auth/register", newUser).pipe(
+      catchError(this.handleError)
+    );
+  }
+
 
   private handleError(error:HttpErrorResponse){
     if(error.status===0){

@@ -3,6 +3,8 @@ import { Turno } from '../turno';
 import { Subscription } from 'rxjs';
 import { TurnoService } from '../turno.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarTurnoModalComponentComponent } from '../editar-turno-modal-component/editar-turno-modal-component.component';
 
 @Component({
   selector: 'app-lista-turnos-en-espera',
@@ -12,39 +14,51 @@ import { Router } from '@angular/router';
 export class ListaTurnosEnEsperaComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   turnos: Turno[];
-  constructor(private turnoServicio: TurnoService, private router: Router) { }
+
+  constructor(
+    private turnoServicio: TurnoService,
+    private router: Router,
+    public dialog: MatDialog
+  ) { }
+
   ngOnInit(): void {
     this.obtenerTurnos();
     this.subscription = this.turnoServicio.refresh$.subscribe(() => {
       this.obtenerTurnos();
     });
   }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-    console.log('Observable cerrado')
   }
-  actualizarTurno(id: number) {
-    this.router.navigate(['actualizar-turno', id]);
-  }
- //Esta Lista Maneja Filtros
-  private obtenerTurnos() {
 
-    this.turnoServicio.obtenerlistaTurno().subscribe(dato => { this.turnos = dato.filter(turno => turno.estado === "Activo"); });
-  }
-  /*
-  private obtenerTurnos() {
+  abrirModalEditarTurno(turno: Turno): void {
+    const dialogRef = this.dialog.open(EditarTurnoModalComponentComponent, {
+      width: '500px',
+      data: turno // Pasando el turno al modal
+    });
 
-    this.turnoServicio.obtenerlistaTurno().subscribe(dato => { this.turnos = dato; });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal ha sido cerrado');
+      // Actualizar la lista de turnos después de cerrar el modal, si es necesario
+      this.obtenerTurnos();
+    });
   }
-*/
-  eliminarTurno(id: number) {
+
+  private obtenerTurnos(): void {
+    this.turnoServicio.obtenerlistaTurno().subscribe(dato => {
+      this.turnos = dato.filter(turno => turno.estado === "En espera");
+    });
+  }
+
+  eliminarTurno(id: number): void {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este turno?');
-    if (confirmacion == true) {
-      this.turnoServicio.eliminarTurno(id).subscribe(dato => {
-        console.log(dato);
+    if (confirmacion) {
+      this.turnoServicio.eliminarTurno(id).subscribe(() => {
+        console.log('Turno eliminado correctamente');
+        // Actualizar la lista de turnos después de eliminar el turno
         this.obtenerTurnos();
-      })
+      });
     }
   }
-
 }

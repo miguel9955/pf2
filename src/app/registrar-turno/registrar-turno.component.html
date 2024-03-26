@@ -1,36 +1,58 @@
-<div class="container w-75 bg-light mt-5 pb-5 rounded shadow ">
-
-    <div class="cont">
-        <form  (ngSubmit)="onSubmit()" method="post">
-            <div class="name pl-3 pt-3 w-50">
-                <label for="name">Nombre: </label>
-                <br>
-                <input class="form-control" type="text" id="Nombre" [(ngModel)]="turno.nombre" name="nombre">
-            </div>
-            <div class="name pl-3 w-50">
-                <label for="name">Apellido: </label>
-                <br>
-                <input class="form-control" type="text" id="Apellido" [(ngModel)]="turno.apellido" name="apellido"
-                     >
-            </div>
-            <div class="name pl-3 w-50">
-                <label for="name">Documento: </label>
-                <br>
-                <input class="form-control" type="text" id="Documento"  [(ngModel)]="turno.documeto" name="documeto">
-            </div>
-            <div class="name pl-3 w-50">
-                <label for="name">Estado: </label>
-                <br>
-                <input class="form-control" type="text" id="Estado"  [(ngModel)]="turno.estado" name="estado">
-            </div>
-
-            <div class="name pl-3 w-50">
-                <br>
-                <button class="btn btn-info" type="submit">Agregar</button>
-            </div>
-            
-
-        </form>
-        
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Noto+Sans+Khojki&display=swap"
+      rel="stylesheet"
+    />
+    
+  </head>
+  <body>
+    <main class="main">
+        <div class="imagen">
+            <img src="/assets/undraw_good_doggy_re_eet7.svg" alt="" />
+          </div>
+          <div class="contenedor-form">
+            <form (ngSubmit)="onSubmit()" method="post" class="formulario">
+              <h2 class="titulo">Crear turno</h2>
+              <div class="boxtext">
+                <i class="fas fa-user"></i>
+                <input placeholder="Nombre" type="text" id="Nombre" [(ngModel)]="turno.nombre" name="nombre">
+              </div>
+              <div class="boxtext">
+                <i class="fas fa-lock"></i>
+                <input placeholder="Apellido" type="text" id="Apellido" [(ngModel)]="turno.apellido" name="apellido">
+              </div>
+              <div class="boxtext">
+                <i class="fas fa-lock"></i>
+                <input placeholder="Documento" type="text" id="Documento" [(ngModel)]="turno.documeto" name="documeto">
+              </div>
+              <div class="desplegable">
+                <label for="tipoturno">Selecciona tipo de servicio:</label>
+                <select id="tipoturno" class="select" [(ngModel)]="turno.tipoturno" name="tipoturno">
+                  <option value="Asesor comercial">Asesor comercial</option>
+                  <option value="Asesor financiero">Asesor financiero</option>
+                  <option value="Atención al cliente">Atención al cliente</option>
+                </select>
+              </div>
+              <div class="desplegable">
+                <label for="discapacidad">Seleccione prioridad:</label>
+                <select id="discapacidad" class="select" [(ngModel)]="turno.discapacidad" name="discapacidad">
+                  <option value="No aplica">No aplica</option>
+                  <option value="Embarazo">Embarazo</option>
+                  <option value="Adulto mayor">Adulto mayor</option>
+                  <option value="Ceguera">Ceguera</option>
+                  
+                </select>
+              </div>
+              <input type="submit" value="Crear" class="btn" />
+            </form>
     </div>
-</div>
+    <div class="imagen">
+      <img src="/assets/undraw_creation_process_re_kqa9.svg" alt="" />
+    </div>
+    </main>
+    </body> 

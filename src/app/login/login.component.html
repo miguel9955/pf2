@@ -1,27 +1,62 @@
-<form [formGroup]="loginForm">
-  <p class="text-danger">{{loginError}}</p>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email</label>
-    <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">  
-      <div *ngIf="email.invalid && (email.dirty || email.touched)"
-          class="text-danger">
-          <div *ngIf="email.errors?.['required']">
-              El Email es requerido.
-          </div>
-          <div *ngIf="email.errors?.['email']">
-              El Email debe tener un formato válido.
-          </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>login</title>
+</head>
+<body>
+    <Main>
+        <div class="containerF">
+            <div class="container-formu">
+              <div class="div-form">
+<form [formGroup]="loginForm" class="sign-in-form">
+    <div class="avatar">
+        <img src="/assets/undraw_cabin_hkfr.svg" alt="">
       </div>
+      <h2 class="titulo">Iniciar sesion</h2>
+    <p class="text-danger">{{loginError}}</p>
+    <div class="boxtext">
+        <i class="fas fa-user"></i>
+        
+      <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario" >  
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="text-danger">
+            <div *ngIf="email.errors?.['required']">
+                El Email es requerido.
+            </div>
+            <div *ngIf="email.errors?.['email']">
+                El Email debe tener un formato válido.
+            </div>
+        </div>
+    </div>
+    <div class="boxtext">
+        <i class="fas fa-lock"></i>
+      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="text-danger">
+            <div *ngIf="password.errors?.['required']">
+                El Password es requerido.
+            </div>
+        </div> 
+    </div>
+    <button type="submit" (click)="login()" class="btn btn-primary">Iniciar Sesión</button>
+  </form>
+</div>
+<div class="panels-container">
+  <div class="panel-izquierda">
+    <div class="content">
+      <img src="/assets/undraw_content_team_re_6rlg.svg" class="imagen" alt="" />
+    </div>
+  
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
-      <div *ngIf="password.invalid && (password.dirty || password.touched)"
-          class="text-danger">
-          <div *ngIf="password.errors?.['required']">
-              El Password es requerido.
-          </div>
-      </div> 
-  </div>
-  <button type="submit" (click)="login()" class="btn btn-primary">Iniciar Sesión</button>
-</form>
+</div>
+</div>
+</div>
+  </Main>
+</body>
+  </html>

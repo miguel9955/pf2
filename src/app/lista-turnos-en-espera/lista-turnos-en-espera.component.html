@@ -1,1 +1,35 @@
-<p>lista-turnos-en-espera works!</p>
+<h2>Lista Turnos En Espera</h2>
+<div class="table-responsive">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="table-active"><strong>Id</strong></th>
+                <th class="table-active"><strong>Nombre</strong></th>
+                <th class="table-active"><strong>Apellido</strong></th>
+                <th class="table-active"><strong>Documento</strong></th>
+                <th class="table-active"><strong>Estado</strong></th>
+                <th class="table-active"><strong>Tipo Asesor</strong></th>
+
+                <th class="table-active"><strong>Acciones</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let turno of turnos">
+                <td>{{ turno.id }}</td>
+                <td>{{ turno.nombre }}</td>
+                <td>{{ turno.apellido }}</td>
+                <td>{{ turno.documeto }}</td>
+                <td>{{ turno.estado }}</td>
+                <td>{{ turno.tipoturno }}</td>
+
+                <td>
+                    <!-- Utiliza el evento click para abrir el modal -->
+                    <button (click)="abrirModalEditarTurno(turno)" class="btn btn-info">Atender</button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

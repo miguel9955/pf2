@@ -12,6 +12,7 @@ export class RegistrarTurnoComponent implements OnInit {
   turno : Turno = new Turno();
   constructor(private turnoservicio:TurnoService,private router:Router){}
   ngOnInit():void{
+    this.turno.estado = 'En espera';
   }
   
   guardarTurno(){
@@ -20,9 +21,10 @@ export class RegistrarTurnoComponent implements OnInit {
     ,error=>console.log(error)) ;
   }
   returnListaTurnos(){
-    this.router.navigate(['/turnos'])
+    this.router.navigate(['/lista-turnos-activos-principal'])
   }
   onSubmit(){ 
+    console.log()
     this.guardarTurno();
 
   }

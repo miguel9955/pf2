@@ -4,4 +4,7 @@ export class Turno {
     apellido:string;
     documeto:number;
     estado:string;
+    discapacidad:string;
+    modulo:string;
+    tipoturno:string;
 }

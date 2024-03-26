@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.prueba{
+  overflow: hidden;
+}
+.cuerpo {
+  background-image: url(/assets/wave.png);
+  background-size: 106% 100%;
+  background-repeat: no-repeat;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.logo-container img {
+  width: 250px;
+  height: 150px;
+  margin-right: 2%;
+}
+main {
+  height: 100vh;
+}
+.img-container {
+  display: flex;
+  justify-content: center;
+}
+.img-container img {
+  max-width: 35%;
+  height: auto;
+}
+.botones {
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+}
+.btn {
+  width: 25%;
+  height: 50px;
+  font-size: large;
+  background-color: #005073;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 15px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #7acef1;
+}
+.titulo {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 2%;
+}
